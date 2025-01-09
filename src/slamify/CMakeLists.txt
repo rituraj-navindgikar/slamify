@@ -35,7 +35,7 @@ install(
 )
 
 install(
-  DIRECTORY description launch worlds src
+  DIRECTORY description launch worlds meshes
   DESTINATION share/${PROJECT_NAME}
 )
 

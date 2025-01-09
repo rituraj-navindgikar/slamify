@@ -32,7 +32,7 @@ def generate_launch_description():
 
     # Declare the world argument
     world_arg = DeclareLaunchArgument(
-        'world', default_value='square.world', description='World file name to load in Gazebo'
+        'world', default_value='maze.world', description='World file name to load in Gazebo'
     )
     world_file_path = PathJoinSubstitution([
         FindPackageShare('slamify'),
