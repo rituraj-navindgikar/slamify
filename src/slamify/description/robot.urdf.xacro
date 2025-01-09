@@ -9,28 +9,27 @@
     <!-- lidar -->
     <xacro:include filename="lidar.xacro" />
 
-    <!-- imu -->
+    <!-- imu + magnetometer--> 
     <xacro:include filename="imu.xacro" />
-
-    <!-- magnetometer -->
-    <xacro:include filename="magnetometer.xacro" />
     
-    <!-- camera -->
+    
+    <!-- camera (light weight and easy)-->
     <xacro:include filename="camera.xacro" />
+            <!-- enable only 1 -->
+    <!-- depth cam  (computationally heavy)--> 
+    <!-- <xacro:include filename="depth_camera.xacro" /> -->
 
-    <!-- depth cam -->
-    <xacro:include filename="depth_camera.xacro" />
 
     <!-- multiple cam -->
-    <xacro:include filename="multi_camera.xacro" />
+    <!-- <xacro:include filename="multi_camera.xacro" /> -->
 
     <!-- gps -->
-    <xacro:include filename="gps.xacro" />
+    <!-- <xacro:include filename="gps.xacro" /> -->
 
     <!-- bumper -->
-    <xacro:include filename="bumper.xacro" />
+    <!-- <xacro:include filename="bumper.xacro" /> -->
 
     <!-- display video -->
-    <xacro:include filename="disp_video.xacro" />
+    <!-- <xacro:include filename="disp_video.xacro" /> -->
 
 </robot>

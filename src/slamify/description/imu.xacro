@@ -33,12 +33,52 @@
             <origin xyz="0.1 0.0 0.0" rpy="0 0 0"/>
         </xacro:inertial_box>
     </link> 
+
+    <joint name="joint_name" type="fixed">
+        <parent link="imu_frame" />
+        <child link="mag_link" />
+    </joint>
+
+    <link name="mag_link" />
+        
+    <gazebo reference="mag_link">
+        <!-- <sensor name="magnetometer" type="magnetometer">
+            <always_on>true</always_on>
+            <update_rate>200</update_rate>
+            <magnetometer>
+                <x>
+                    <noise type="gaussian">
+                        <mean>0.0</mean>
+                        <stddev>0.001</stddev>
+                    </noise>
+                </x>
+                <y>
+                    <noise type="gaussian">
+                        <mean>0.0</mean>
+                        <stddev>0.001</stddev>
+                    </noise>
+                </y>
+                <z>
+                    <noise type="gaussian">
+                        <mean>0.0</mean>
+                        <stddev>0.001</stddev>
+                    </noise>
+                </z>
+            </magnetometer>
+
+            <plugin name="mag" filename="libgazebo_ros_magnetometer.so">
+                <ros>
+                    <remapping>~/out:=magnetometer/data</remapping>
+                </ros>
+            </plugin>
+        </sensor> -->
+    </gazebo>
     
     <gazebo reference="imu_frame">
         <initial_orientation_as_reference>false</initial_orientation_as_reference> 
         <material>Gazebo/Green</material>
         <gravity>true</gravity>
-        <sensor name="tb3_imu" type="imu">
+        <sensor name="imu" type="imu">
         <always_on>true</always_on>
         <update_rate>200</update_rate>
         <imu>
@@ -85,16 +125,10 @@
         </imu>
         <plugin name="imu_sensor" filename="libgazebo_ros_imu_sensor.so">
           <ros>
-            <!-- <namespace>/tb3</namespace> -->
-            <remapping>~/out:=imu_raw</remapping>
+            <remapping>~/out:=imu</remapping>
           </ros>
         </plugin>
       </sensor>
     </gazebo>
 
 </robot>
-
-<!-- 
-    <link name="imu_link">
-      
-    </link> -->

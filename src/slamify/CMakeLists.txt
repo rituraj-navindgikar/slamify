@@ -11,7 +11,6 @@ find_package(ament_cmake REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
-find_package(imu_msgs REQUIRED)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -25,17 +24,17 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-add_executable(imu_sub src/raw_imu_parsing.cpp)
-ament_target_dependencies(imu_sub rclcpp sensor_msgs geometry_msgs imu_msgs)
+# add_executable(imu_sub src/raw_imu_parsing.cpp)
+# ament_target_dependencies(imu_sub rclcpp sensor_msgs geometry_msgs imu_msgs)
+
+# install(
+#   TARGETS
+#   imu_sub
+#   DESTINATION lib/${PROJECT_NAME}
+# )
 
 install(
-  TARGETS
-  imu_sub
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(
-  DIRECTORY description launch worlds meshes
+  DIRECTORY description launch worlds
   DESTINATION share/${PROJECT_NAME}
 )
 
